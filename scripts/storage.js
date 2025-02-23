@@ -43,6 +43,35 @@ document.addEventListener('DOMContentLoaded', () => {
         return isValid;
     }
 
+    // Function to validate the contact form
+    function validateContactForm(name, email, message) {
+        let isValid = true;
+
+        // Name validation
+        if (name.trim() === '') {
+            console.log("Name is required."); // Debugging
+            isValid = false;
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email.trim() === '') {
+            console.log("Email is required."); // Debugging
+            isValid = false;
+        } else if (!emailRegex.test(email)) {
+            console.log("Please enter a valid email address."); // Debugging
+            isValid = false;
+        }
+
+        // Message validation
+        if (message.trim() === '') {
+            console.log("Message is required."); // Debugging
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
     // Function to save form data to localStorage
     function saveFormData(formId, storageKey, validate = false) {
         const form = document.getElementById(formId);
@@ -57,14 +86,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = Object.fromEntries(formData.entries()); // Convert to an object
                 console.log('Form data captured:', data); // Debugging
 
-                // Validate the form data (only for registration form)
+                // Validate the form data (if required)
                 if (validate) {
-                    const isValid = validateRegistrationForm(
-                        data['full-name'], // Full Name
-                        data.email,        // Email
-                        data.password,     // Password
-                        data['confirm-password'] // Confirm Password
-                    );
+                    let isValid = false;
+                    if (formId === 'registration-form') {
+                        isValid = validateRegistrationForm(
+                            data['full-name'], // Full Name
+                            data.email,        // Email
+                            data.password,     // Password
+                            data['confirm-password'] // Confirm Password
+                        );
+                    } else if (formId === 'feedback-form') {
+                        isValid = validateContactForm(
+                            data.name,    // Name
+                            data.email,   // Email
+                            data.message // Message
+                        );
+                    }
 
                     if (!isValid) {
                         console.log('Form validation failed!'); // Debugging
@@ -140,5 +178,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     } else {
         console.error('View Registrations button not found!');
+    }
+
+    // Save and display data for the contact form
+    saveFormData('feedback-form', 'responses', true); // Enable validation for contact form
+
+    // Add event listener for "View Responses" button
+    const viewResponsesButton = document.getElementById('view-responses');
+    if (viewResponsesButton) {
+        viewResponsesButton.addEventListener('click', () => {
+            console.log('View Responses button clicked!'); // Debugging
+            displayData('responses', 'responses-table');
+        });
+    } else {
+        console.error('View Responses button not found!');
     }
 });
