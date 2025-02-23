@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to save form data to localStorage
-    function saveFormData(formId, storageKey) {
+    function saveFormData(formId, storageKey, validate = false) {
         const form = document.getElementById(formId);
         if (form) {
             console.log(`Form with ID ${formId} found!`); // Debugging
@@ -57,18 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = Object.fromEntries(formData.entries()); // Convert to an object
                 console.log('Form data captured:', data); // Debugging
 
-                // Validate the form data
-                const isValid = validateRegistrationForm(
-                    data['full-name'], // Full Name
-                    data.email,        // Email
-                    data.password,     // Password
-                    data['confirm-password'] // Confirm Password
-                );
+                // Validate the form data (only for registration form)
+                if (validate) {
+                    const isValid = validateRegistrationForm(
+                        data['full-name'], // Full Name
+                        data.email,        // Email
+                        data.password,     // Password
+                        data['confirm-password'] // Confirm Password
+                    );
 
-                if (!isValid) {
-                    console.log('Form validation failed!'); // Debugging
-                    alert('Please fill in all fields correctly.'); // Notify the user
-                    return; // Stop further execution
+                    if (!isValid) {
+                        console.log('Form validation failed!'); // Debugging
+                        alert('Please fill in all fields correctly.'); // Notify the user
+                        return; // Stop further execution
+                    }
                 }
 
                 // Get existing data or initialize an empty array
@@ -112,8 +114,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Save and display data for the login form
+    saveFormData('login-form', 'logins');
+
+    // Add event listener for "View Logins" button
+    const viewLoginsButton = document.getElementById('view-logins');
+    if (viewLoginsButton) {
+        viewLoginsButton.addEventListener('click', () => {
+            console.log('View Logins button clicked!'); // Debugging
+            displayData('logins', 'logins-table');
+        });
+    } else {
+        console.error('View Logins button not found!');
+    }
+
     // Save and display data for the registration form
-    saveFormData('registration-form', 'registrations');
+    saveFormData('registration-form', 'registrations', true); // Enable validation for registration form
 
     // Add event listener for "View Registrations" button
     const viewRegistrationsButton = document.getElementById('view-registrations');
