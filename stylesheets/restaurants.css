@@ -1,0 +1,121 @@
+/* Restaurants Section Styles */
+.restaurants {
+    padding: 40px 20px; /* Adds padding around the section */
+    text-align: center; /* Centers the text */
+    background-color: #f8f9fa; /* Light background color for the section */
+}
+
+/* Heading for the restaurants section */
+.restaurants h2 {
+    font-size: 2rem; /* Large font size for the heading */
+    margin-bottom: 20px; /* Adds spacing below the heading */
+    color: #2c3e50; /* Dark color for better readability */
+}
+
+/* Grid layout for restaurant cards */
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates a responsive grid */
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+    gap: 16px; /* Adds spacing between grid items */
+    padding: 10px; /* Adds padding inside the grid */
+    scroll-snap-type: x mandatory; /* Ensures smooth scrolling on horizontal axis */
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* Styling for individual restaurant cards */
+.restaurant-card {
+    flex: 0 0 auto; /* Ensures cards don't shrink or grow */
+    scroll-snap-align: start; /* Aligns cards to the start of the scroll container */
+    background: white; /* White background for the card */
+    border-radius: 10px; /* Rounded corners for the card */
+    overflow: hidden; /* Hides overflow content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    position: relative; /* Ensures proper positioning */
+}
+
+/* Hover effect for restaurant cards */
+.restaurant-card:hover {
+    transform: translateY(-10px); /* Moves the card up slightly on hover */
+}
+
+/* Styling for restaurant card images */
+.restaurant-card img {
+    width: 100%; /* Ensures the image fills the card width */
+    height: 200px; /* Fixed height for the image */
+    object-fit: cover; /* Ensures the image covers the entire space */
+}
+
+/* Styling for restaurant card headings */
+.restaurant-card h3 {
+    font-size: 1.5rem; /* Medium font size for the heading */
+    margin: 15px 0 10px; /* Adds spacing around the heading */
+    color: #2c3e50; /* Dark color for better readability */
+}
+
+/* Styling for restaurant card descriptions */
+.restaurant-card p {
+    font-size: 1rem; /* Standard font size for the description */
+    color: #666; /* Gray color for less emphasis */
+    margin-bottom: 15px; /* Adds spacing below the description */
+}
+/* Hamburger Icon Styles */
+.menu-icon {
+    display: flex; /* Always show the hamburger icon */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001; /* Ensure it's above other elements */
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #2c3e50;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Navigation Links Styles */
+.nav-links {
+    display: none; /* Hide navigation links by default */
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Adjust based on header height */
+    right: 20px; /* Position the dropdown to the right */
+    width: 200px; /* Set a fixed width for the dropdown */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners for the dropdown */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: left; /* Align text to the left */
+    opacity: 0; /* Start with 0 opacity for fade-in effect */
+    transform: translateY(-20px); /* Start slightly above for fade-in effect */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Fading effect */
+}
+
+.nav-links.active {
+    display: flex; /* Show navigation links when active */
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+.nav-links li {
+    padding: 8px 0;
+    border-bottom: 2px solid #07070754; /* Add a separator between links */
+}
+
+.nav-links li:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+
+.nav-links li a {
+    color: #2c3e50; /* Dark color for links */
+    font-weight: 500; /* Medium font weight */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+
+.nav-links li a:hover {
+    color: #e74c3c; /* Changes link color on hover */
+    transform: translateY(-2px); /* Moves link slightly up on hover */
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Food Delivery - Register</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Register Section -->
+    <section class="register">
+        <div class="register-container">
+            <div class="logo">
+                <img src="./images/logo.jpg" alt="Food Delivery Logo">
+            </div>
+            <h2>Create an Account</h2>
+            <p>Please fill in the form to register.</p>
+            <!-- Registration Form -->
+            <form id="registration-form" novalidate>
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Enter your full name">
+                    <span id="full-name-error" class="error"></span>
+                </div>
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <span id="email-error" class="error"></span>
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                    <span id="password-error" class="error"></span>
+                </div>
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password">
+                    <span id="confirm-password-error" class="error"></span>
+                </div>
+                <!-- Register Button -->
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <!-- Login Link -->
+            <p class="login-link">Already have an account? <a href="index.html">Login</a></p>
+                    <!-- Button to View Registrations -->
+        <button id="view-registrations" class="btn">View Registrations</button>
+                <!-- Table to Display Registrations -->
+                <table id="registrations-table">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+        </div>
+        
+        
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Online Food Delivery. All rights reserved.</p>
+        <ul>
+            <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+    </footer>
+
+    <!-- JavaScript for form validation -->
+    <script src="./scripts/validation.js"></script>
+    <script src="./scripts/storage.js" defer></script>
+</body>
+</html>

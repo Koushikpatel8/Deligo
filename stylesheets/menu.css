@@ -1,0 +1,92 @@
+/* Menu Section Styles */
+.menu {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f8f9fa; /* Light background for the menu section */
+}
+
+.menu h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333; /* Dark color for the heading */
+}
+
+/* Grid layout for menu items */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr)); /* Responsive grid with 3 columns */
+    gap: 20px; /* Spacing between grid items */
+    justify-content: center;
+    max-width: 1200px; /* Limits the width of the grid */
+    margin: 0 auto; /* Centers the grid horizontally */
+}
+
+/* Styling for individual menu cards */
+.menu-card {
+    background: white;
+    border-radius: 10px; /* Rounded corners for the card */
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Hover effect for menu cards */
+.menu-card:hover {
+    transform: translateY(-10px); /* Moves the card up slightly on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhances shadow on hover */
+}
+
+/* Styling for menu card images */
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ensures the image covers the entire space */
+    border-bottom: 2px solid #eee; /* Adds a separator below the image */
+}
+
+/* Styling for menu card headings */
+.menu-card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
+    color: #222; /* Dark color for the heading */
+}
+
+/* Styling for menu card descriptions */
+.menu-card p {
+    font-size: 1rem;
+    color: #666; /* Gray color for less emphasis */
+    margin-bottom: 15px;
+}
+
+/* Styling for the "Add to Cart" button */
+.menu-card .btn {
+    background-color: #e74c3c; /* Red background color */
+    color: white;
+    padding: 0.5rem 1rem; /* Smaller button padding */
+    border-radius: 5px; /* Rounded corners for the button */
+    font-size: 0.9rem; /* Smaller button font size */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for the "Add to Cart" button */
+.menu-card .btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 column for small screens */
+    }
+}

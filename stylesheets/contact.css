@@ -1,0 +1,135 @@
+/* Contact Section Styles */
+.contact {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4; /* Softer background */
+}
+
+.contact h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #222; /* Darker heading */
+    margin-bottom: 15px;
+}
+
+/* Contact Form Container */
+.contact form {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Modern shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Label Styling */
+.contact label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Input Fields & Textarea */
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+/* Focus Effect */
+.contact input:focus,
+.contact textarea:focus {
+    border-color: #ff6600;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.3);
+}
+
+/* Textarea (Message Box) */
+.contact textarea {
+    width: 100%; /* Full width of the container */
+    height: 150px; /* Fixed height for the textarea */
+    padding: 12px;
+    margin-bottom: 10px; /* Reduced margin to accommodate error messages */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners for textarea */
+    font-size: 1rem;
+    resize: none; /* Disable resizing */
+    overflow-y: auto; /* Enable vertical scrolling */
+    transition: border 0.3s ease-in-out; /* Smooth transition for focus effect */
+}
+
+/* Submit Button */
+.btn {
+    width: 100%;
+    background: #ff6600;
+    color: white;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease-in-out;
+}
+
+/* Button Hover */
+.btn:hover {
+    background: #e65c00;
+    transform: scale(1.02);
+}
+
+/* Error Messages */
+.error {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 3px;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show Error */
+.error.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Highlight Invalid Fields */
+input.error-field,
+textarea.error-field {
+    border-color: #d9534f;
+    background: #ffe5e5;
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact form {
+        padding: 25px;
+    }
+    .contact h2 {
+        font-size: 1.8rem;
+    }
+    .btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+}

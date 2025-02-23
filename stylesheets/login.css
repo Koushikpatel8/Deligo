@@ -1,0 +1,145 @@
+/* Login Section Styles */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130vh;
+    background-image: url(../images/login.jpeg);
+    padding: 20px;
+}
+
+/* Container for the login form */
+.login-container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    max-width: 350px; /* Maximum width for the container */
+    width: 100%;
+    text-align: center;
+}
+
+/* Logo styling inside the login container */
+.login-container .logo img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+/* Heading styling inside the login container */
+.login-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+/* Paragraph styling inside the login container */
+.login-container p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Label styling for form inputs */
+.form-group label {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #ff6600;
+    outline: none;
+}
+
+.login-container .btn {
+    width: 100%;
+    background: #ff6600;
+    color: white;
+    padding: 14px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-container .btn:hover {
+    background: #e65c00;
+}
+
+.signup-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.signup-link a {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Error Messages */
+.error {
+    color: #d9534f; /* Red color matching contact form */
+    font-size: 0.85rem;
+    margin-top: 3px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show error message */
+.error.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Highlight invalid fields */
+input.error-field {
+    border-color: #d9534f !important; /* Red border for error fields */
+    background: #ffe5e5; /* Light red background */
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Shake animation for error fields */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .login-container p {
+        font-size: 0.9rem;
+    }
+}

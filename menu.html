@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the page -->
+    <title>Online Food Delivery - Menu</title>
+    
+    <!-- External CSS files for styling -->
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/menu.css">
+    
+        <!-- JavaScript for menu functionality -->
+        <script src="./scripts/menu.js" defer></script>
+
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <!-- Website logo -->
+            <div class="logo">
+                <img src="./images/logo.jpg" alt="Food Delivery Logo">
+            </div>
+            <!-- Hamburger Icon -->
+            <div class="menu-icon" id="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <!-- Navigation links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Menu Section -->
+    <section class="menu">
+        <!-- Heading for the menu section -->
+        <h2>Menu</h2>
+        
+        <!-- Grid layout for menu items -->
+        <div class="menu-grid">
+            <!-- Menu card for Margherita Pizza -->
+            <form action="cart.html" method="post" class="menu-card">
+                <img src="./images/dish1.jpg" alt="Margherita Pizza">
+                <h3>Margherita Pizza</h3>
+                <p>$12.99</p>
+                <input type="hidden" name="item" value="Margherita Pizza">
+                <input type="hidden" name="price" value="12.99">
+                <a type="submit" class="btn">Add to Cart</a>
+            </form>
+            
+            <!-- Menu card for Spaghetti Carbonara -->
+            <form action="cart.html" method="post" class="menu-card">
+                <img src="./images/dish2.jpg" alt="Spaghetti Carbonara">
+                <h3>Spaghetti Carbonara</h3>
+                <p>$14.99</p>
+                <input type="hidden" name="item" value="Spaghetti Carbonara">
+                <input type="hidden" name="price" value="14.99">
+                <a type="submit" class="btn">Add to Cart</a>
+            </form>
+        </div>
+        
+        <!-- View Cart button -->
+        <div class="view-cart">
+            <a href="cart.html" class="btn">View Cart</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Copyright information -->
+        <p>&copy; 2025 Online Food Delivery. All rights reserved.</p>
+        
+        <!-- Footer links for Terms & Conditions and Privacy Policy -->
+        <ul>
+            <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

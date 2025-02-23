@@ -1,0 +1,56 @@
+/* Cart Section Styles */
+.cart {
+    padding: 40px 20px; /* Adds padding around the cart section */
+    text-align: center; /* Centers the content */
+}
+
+/* Heading for the cart section */
+.cart h2 {
+    font-size: 2rem; /* Large font size for the heading */
+    margin-bottom: 20px; /* Adds spacing below the heading */
+}
+
+/* Container for cart items */
+.cart-items {
+    display: flex;
+    flex-direction: column; /* Stacks cart items vertically */
+    gap: 20px; /* Adds spacing between cart items */
+}
+
+/* Styling for individual cart items */
+.cart-item {
+    display: flex;
+    align-items: center; /* Vertically centers the content */
+    justify-content: space-between; /* Spaces out the item details and remove button */
+    background: white; 
+    border-radius: 10px; /* Rounded corners for the item */
+    padding: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styling for cart item images */
+.cart-item img {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; /* Ensures the image covers the entire space */
+    border-radius: 10px; /* Rounded corners for the image */
+}
+
+/* Styling for cart item headings */
+.cart-item h3 {
+    font-size: 1.2rem; /* Medium font size for the heading */
+    margin: 0; /* Removes default margin */
+}
+
+/* Styling for cart item prices */
+.cart-item p {
+    font-size: 1rem; /* Standard font size for the price */
+    color: #666; 
+    margin: 0; 
+}
+
+/* Styling for the cart total section */
+.cart-total {
+    margin-top: 20px; /* Adds spacing above the total */
+    font-size: 1.5rem; /* Large font size for the total */
+}
