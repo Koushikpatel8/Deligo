@@ -1,69 +1,69 @@
 /* Contact Section Styles */
 .contact {
-    padding: 60px 20px;
+    padding: 60px 20px; /* Adds padding around the contact section */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: #f4f4f4; /* Softer background */
+    align-items: center; /* Centers the content horizontally */
+    background-color: #f4f4f4; /* Softer background color */
 }
 
 .contact h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #222; /* Darker heading */
-    margin-bottom: 15px;
+    font-size: 2rem; /* Large font size for the heading */
+    font-weight: 600; /* Bold font weight */
+    color: #222; /* Darker heading color for better readability */
+    margin-bottom: 15px; /* Adds spacing below the heading */
 }
 
 /* Contact Form Container */
 .contact form {
     width: 100%;
-    max-width: 500px;
-    background: #ffffff;
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Modern shadow */
+    max-width: 500px; /* Limits the width of the form */
+    background: #ffffff; /* White background for the form */
+    padding: 50px; /* Adds padding inside the form */
+    border-radius: 8px; /* Rounded corners for the form */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Modern shadow for depth */
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px; /* Adds spacing between form elements */
 }
 
 /* Label Styling */
 .contact label {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 5px;
+    font-size: 1rem; /* Standard font size for labels */
+    font-weight: 500; /* Medium font weight */
+    color: #333; /* Dark color for better readability */
+    margin-bottom: 5px; /* Adds spacing below the label */
 }
 
 /* Input Fields & Textarea */
 .contact input,
 .contact textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1.5px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    background-color: #fff;
+    width: 100%; /* Ensures the input takes up the full width */
+    padding: 12px; /* Adds padding inside the input */
+    border: 1.5px solid #ccc; /* Light gray border */
+    border-radius: 6px; /* Rounded corners for the input */
+    font-size: 1rem; /* Standard font size for the input */
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for focus effect */
+    background-color: #fff; /* White background for the input */
 }
 
 /* Focus Effect */
 .contact input:focus,
 .contact textarea:focus {
-    border-color: #ff6600;
-    outline: none;
-    box-shadow: 0 0 5px rgba(255, 102, 0, 0.3);
+    border-color: #ff6600; /* Changes border color on focus */
+    outline: none; /* Removes the default outline */
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.3); /* Adds a subtle shadow on focus */
 }
 
 /* Textarea (Message Box) */
 .contact textarea {
     width: 100%; /* Full width of the container */
     height: 150px; /* Fixed height for the textarea */
-    padding: 12px;
+    padding: 12px; /* Adds padding inside the textarea */
     margin-bottom: 10px; /* Reduced margin to accommodate error messages */
     border: 1px solid #ccc; /* Light gray border */
-    border-radius: 5px; /* Rounded corners for textarea */
-    font-size: 1rem;
+    border-radius: 5px; /* Rounded corners for the textarea */
+    font-size: 1rem; /* Standard font size for the textarea */
     resize: none; /* Disable resizing */
     overflow-y: auto; /* Enable vertical scrolling */
     transition: border 0.3s ease-in-out; /* Smooth transition for focus effect */
@@ -71,46 +71,46 @@
 
 /* Submit Button */
 .btn {
-    width: 100%;
-    background: #ff6600;
-    color: white;
-    padding: 14px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s ease-in-out;
+    width: 100%; /* Ensures the button takes up the full width */
+    background: #ff6600; /* Orange background color */
+    color: white; /* White text color */
+    padding: 14px; /* Adds padding inside the button */
+    font-size: 1.1rem; /* Larger font size for the button */
+    font-weight: 600; /* Bold font weight */
+    border: none; /* Removes the default border */
+    border-radius: 6px; /* Rounded corners for the button */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    transition: background 0.3s, transform 0.2s ease-in-out; /* Smooth transition for hover effect */
 }
 
 /* Button Hover */
 .btn:hover {
-    background: #e65c00;
-    transform: scale(1.02);
+    background: #e65c00; /* Darker orange on hover */
+    transform: scale(1.02); /* Slightly scales the button on hover */
 }
 
 /* Error Messages */
 .error {
-    color: #d9534f;
-    font-size: 0.85rem;
-    margin-top: 3px;
-    opacity: 0;
-    transform: translateY(-5px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    color: #d9534f; /* Red color for error messages */
+    font-size: 0.85rem; /* Smaller font size for error messages */
+    margin-top: 3px; /* Adds spacing above the error message */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-5px); /* Starts slightly above */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for showing the error */
 }
 
 /* Show Error */
 .error.show {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Makes the error message visible */
+    transform: translateY(0); /* Moves the error message to its original position */
 }
 
 /* Highlight Invalid Fields */
 input.error-field,
 textarea.error-field {
-    border-color: #d9534f;
-    background: #ffe5e5;
-    animation: shake 0.3s ease-in-out;
+    border-color: #d9534f; /* Red border for invalid fields */
+    background: #ffe5e5; /* Light red background for invalid fields */
+    animation: shake 0.3s ease-in-out; /* Shake animation for invalid fields */
 }
 
 /* Shake Animation */
@@ -123,13 +123,13 @@ textarea.error-field {
 /* Responsive Design */
 @media (max-width: 768px) {
     .contact form {
-        padding: 25px;
+        padding: 25px; /* Reduces padding for smaller screens */
     }
     .contact h2 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Smaller font size for the heading */
     }
     .btn {
-        padding: 12px;
-        font-size: 1rem;
+        padding: 12px; /* Reduces padding for smaller screens */
+        font-size: 1rem; /* Smaller font size for the button */
     }
 }

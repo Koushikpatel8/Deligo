@@ -9,9 +9,9 @@
     <title>Online Food Delivery - Cart</title>
     
     <!-- External CSS files for styling -->
-    <link rel="stylesheet" href="./stylesheets/style.css">
-    <link rel="stylesheet" href="./stylesheets/cart.css">
-
+    <link rel="stylesheet" href="./stylesheets/style.css"> <!-- Main stylesheet -->
+    <link rel="stylesheet" href="./stylesheets/cart.css"> <!-- Cart-specific styles -->
+    
     <!-- JavaScript for menu functionality -->
     <script src="./scripts/menu.js" defer></script>
     
@@ -26,12 +26,14 @@
             <div class="logo">
                 <img src="./images/logo.jpg" alt="Food Delivery Logo">
             </div>
-            <!-- Hamburger Icon -->
+            
+            <!-- Hamburger Icon for mobile navigation -->
             <div class="menu-icon" id="menu-icon">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
+            
             <!-- Navigation links -->
             <ul class="nav-links" id="nav-links">
                 <li><a href="home.html">Home</a></li>
@@ -55,7 +57,7 @@
                 <img src="./images/dish1.jpg" alt="Margherita Pizza">
                 <h3>Margherita Pizza</h3>
                 <p>$12.99</p>
-                <a class="btn">Remove</a>
+                <a class="btn">Remove</a> <!-- Button to remove the item from the cart -->
             </div>
             
             <!-- Cart item for Spaghetti Carbonara -->
@@ -63,14 +65,14 @@
                 <img src="./images/dish2.jpg" alt="Spaghetti Carbonara">
                 <h3>Spaghetti Carbonara</h3>
                 <p>$14.99</p>
-                <a class="btn">Remove</a>
+                <a class="btn">Remove</a> <!-- Button to remove the item from the cart -->
             </div>
         </div>
         
         <!-- Cart total and checkout button -->
         <div class="cart-total">
-            <h3>Total: $27.98</h3>
-            <a class="btn">Checkout</a>
+            <h3>Total: $27.98</h3> <!-- Display the total price of items in the cart -->
+            <a class="btn">Checkout</a> <!-- Button to proceed to checkout -->
         </div>
     </section>
 
@@ -86,7 +88,7 @@
         </ul>
     </footer>
 
-    <!-- JavaScript for right-click event -->
+    <!-- JavaScript for right-click event handling -->
     <script src="./scripts/right-click.js" defer></script>
 </body>
 </html>

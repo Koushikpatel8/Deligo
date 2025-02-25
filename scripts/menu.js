@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Select the hamburger icon, navigation links, and bars
     const menuIcon = document.getElementById("menu-icon");
     const navLinks = document.getElementById("nav-links");
     const bars = document.querySelectorAll(".menu-icon .bar");
 
     // Toggle the navigation menu and animate the hamburger icon
     menuIcon.addEventListener("click", function () {
+        // Toggle the 'active' class on the navigation links
         const isActive = navLinks.classList.toggle("active");
 
         // Update ARIA attribute for accessibility
@@ -26,9 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Close the navigation menu when clicking outside
     document.addEventListener("click", function (event) {
+        // Check if the click is inside the navigation menu or on the hamburger icon
         const isClickInsideMenu = navLinks.contains(event.target);
         const isClickOnMenuIcon = menuIcon.contains(event.target);
 
+        // If the click is outside the menu and not on the hamburger icon, close the menu
         if (!isClickInsideMenu && !isClickOnMenuIcon) {
             navLinks.classList.remove("active");
             menuIcon.setAttribute("aria-expanded", "false");
@@ -42,7 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Close the menu when a link is clicked (optional)
     navLinks.addEventListener("click", function (event) {
+        // Check if the clicked element is a link
         if (event.target.tagName === "A") {
+            // Close the navigation menu
             navLinks.classList.remove("active");
             menuIcon.setAttribute("aria-expanded", "false");
 

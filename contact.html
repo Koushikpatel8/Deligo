@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the page -->
     <title>Online Food Delivery - Contact</title>
-    <link rel="stylesheet" href="./stylesheets/style.css">
-    <link rel="stylesheet" href="./stylesheets/contact.css">
+    
+    <!-- External CSS files for styling -->
+    <link rel="stylesheet" href="./stylesheets/style.css"> <!-- Main stylesheet -->
+    <link rel="stylesheet" href="./stylesheets/contact.css"> <!-- Contact-specific styles -->
+    
+    <!-- Google Fonts for typography -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <nav>
+            <!-- Website logo -->
             <div class="logo">
                 <img src="./images/logo.jpg" alt="Food Delivery Logo">
             </div>
+            
+            <!-- Hamburger Icon for mobile navigation -->
             <div class="menu-icon" id="menu-icon">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
+            
+            <!-- Navigation links -->
             <ul class="nav-links" id="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="restaurants.html">Restaurants</a></li>
@@ -32,26 +44,34 @@
 
     <!-- Contact Section -->
     <section class="contact">
+        <!-- Heading for the contact section -->
         <h2>Contact Us</h2>
         <p>Have questions or feedback? We'd love to hear from you!</p>
 
         <!-- Feedback Form -->
         <form id="feedback-form" novalidate>
+            <!-- Name input field -->
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name">
-                <span id="name-error" class="error"></span>
+                <span id="name-error" class="error"></span> <!-- Error message for name -->
             </div>
+            
+            <!-- Email input field -->
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email">
-                <span id="email-error" class="error"></span>
+                <span id="email-error" class="error"></span> <!-- Error message for email -->
             </div>
+            
+            <!-- Message textarea -->
             <div class="form-group">
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
-                <span id="message-error" class="error"></span>
+                <span id="message-error" class="error"></span> <!-- Error message for message -->
             </div>
+            
+            <!-- Submit button for the form -->
             <button type="submit" class="btn">Send Message</button>
         </form>
 
@@ -59,22 +79,26 @@
         <div class="view-responses-container">
             <button id="view-responses" class="btn">View Responses</button>
         </div>
-            <!-- Table to Display Responses -->
-    <table id="responses-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Message</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+        
+        <!-- Table to Display Responses -->
+        <table id="responses-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody></tbody> <!-- Rows will be added dynamically -->
+        </table>
     </section>
 
     <!-- Footer Section -->
     <footer>
+        <!-- Copyright information -->
         <p>&copy; 2025 Online Food Delivery. All rights reserved.</p>
+        
+        <!-- Footer links for Terms & Conditions and Privacy Policy -->
         <ul>
             <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
@@ -83,10 +107,14 @@
 
     <!-- JavaScript for form validation -->
     <script src="./scripts/validation.js"></script>
+    
     <!-- JavaScript for menu functionality -->
     <script src="./scripts/menu.js" defer></script>
+    
     <!-- JavaScript for localStorage functionality -->
     <script src="./scripts/storage.js" defer></script>
+    
+    <!-- JavaScript for right-click event handling -->
     <script src="./scripts/right-click.js" defer></script>
 </body>
 </html>
