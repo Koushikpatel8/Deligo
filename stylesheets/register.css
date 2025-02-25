@@ -97,13 +97,36 @@
     text-decoration: underline;
 }
 
+/* Error Messages */
 .error {
-    color: red;
-    font-size: 0.9rem;
-    margin-top: 5px;
-    display: block;
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 3px;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Show Error */
+.error.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Highlight Invalid Fields */
+input.error-field,
+textarea.error-field {
+    border-color: #d9534f;
+    background: #ffe5e5;
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
 @media (max-width: 480px) {
     .register-container {
         padding: 20px;

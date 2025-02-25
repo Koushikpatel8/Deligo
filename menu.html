@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Title of the page -->
-    <title>Online Food Delivery - Menu</title>
+    <title>Online Food Delivery - Restaurants</title>
     
     <!-- External CSS files for styling -->
     <link rel="stylesheet" href="./stylesheets/style.css">
-    <link rel="stylesheet" href="./stylesheets/menu.css">
-    
-        <!-- JavaScript for menu functionality -->
-        <script src="./scripts/menu.js" defer></script>
+    <link rel="stylesheet" href="./stylesheets/restaurants.css">
 
+    <!-- JavaScript for menu functionality -->
+    <script src="./scripts/menu.js" defer></script>
+    
     <!-- Google Fonts for typography -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -24,7 +24,10 @@
         <nav>
             <!-- Website logo -->
             <div class="logo">
-                <img src="./images/logo.jpg" alt="Food Delivery Logo">
+                <!-- Wrap the logo image in an anchor tag -->
+                <a href="home.html">
+                    <img src="./images/logo.jpg" alt="Food Delivery Logo">
+                </a>
             </div>
             <!-- Hamburger Icon -->
             <div class="menu-icon" id="menu-icon">
@@ -43,37 +46,108 @@
         </nav>
     </header>
 
-    <!-- Menu Section -->
-    <section class="menu">
-        <!-- Heading for the menu section -->
-        <h2>Menu</h2>
+    <!-- Restaurants Section -->
+    <section class="restaurants">
+        <!-- Heading for the restaurants section -->
+        <h2>Featured Restaurants</h2>
         
-        <!-- Grid layout for menu items -->
-        <div class="menu-grid">
-            <!-- Menu card for Margherita Pizza -->
-            <form action="cart.html" method="post" class="menu-card">
-                <img src="./images/dish1.jpg" alt="Margherita Pizza">
-                <h3>Margherita Pizza</h3>
-                <p>$12.99</p>
-                <input type="hidden" name="item" value="Margherita Pizza">
-                <input type="hidden" name="price" value="12.99">
-                <a type="submit" class="btn">Add to Cart</a>
-            </form>
+        <!-- Grid layout for restaurant cards -->
+        <div class="restaurant-grid">
+            <!-- Restaurant card for Italian Bistro -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant1.jpg" alt="Italian Bistro">
+                <h3>Italian Bistro</h3>
+                <p>Pizza, Pasta, and More</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
             
-            <!-- Menu card for Spaghetti Carbonara -->
-            <form action="cart.html" method="post" class="menu-card">
-                <img src="./images/dish2.jpg" alt="Spaghetti Carbonara">
-                <h3>Spaghetti Carbonara</h3>
-                <p>$14.99</p>
-                <input type="hidden" name="item" value="Spaghetti Carbonara">
-                <input type="hidden" name="price" value="14.99">
-                <a type="submit" class="btn">Add to Cart</a>
-            </form>
-        </div>
-        
-        <!-- View Cart button -->
-        <div class="view-cart">
-            <a href="cart.html" class="btn">View Cart</a>
+            <!-- Restaurant card for Sushi Palace -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant2.jpg" alt="Sushi Palace">
+                <h3>Sushi Palace</h3>
+                <p>Fresh Sushi and Sashimi</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Burger Haven -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant3.jpg" alt="Burger Haven">
+                <h3>Burger Haven</h3>
+                <p>Gourmet Burgers and Fries</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Taco Fiesta -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant4.jpg" alt="Taco Fiesta">
+                <h3>Taco Fiesta</h3>
+                <p>Tacos, Burritos, and More</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Steak House -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant5.jpg" alt="Steak House">
+                <h3>Steak House</h3>
+                <p>Premium Steaks and Sides</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Noodle Express -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant6.jpg" alt="Noodle Express">
+                <h3>Noodle Express</h3>
+                <p>Asian Noodles and Stir Fry</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Indian Curry House -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant7.jpg" alt="Curry House">
+                <h3>Indian Curry House</h3>
+                <p>Spicy and Flavorful Curries</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Mediterranean Bites -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant8.jpg" alt="Mediterranean Bites">
+                <h3>Mediterranean Bites</h3>
+                <p>Greek and Middle Eastern Cuisine</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Vegan Bliss -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant9.jpg" alt="Vegan Bliss">
+                <h3>Vegan Bliss</h3>
+                <p>100% Plant-Based Meals</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Deli Fresh -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant10.jpg" alt="Deli Fresh">
+                <h3>Deli Fresh</h3>
+                <p>Fresh Sandwiches and Salads</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Fusion Kitchen -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant11.jpg" alt="Fusion Kitchen">
+                <h3>Fusion Kitchen</h3>
+                <p>Mix of Global Flavors</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
+            
+            <!-- Restaurant card for Bakery Bliss -->
+            <div class="restaurant-card">
+                <img src="./images/restaurant12.jpg" alt="Bakery Bliss">
+                <h3>Bakery Bliss</h3>
+                <p>Freshly Baked Goods</p>
+                <a href="menu.html" class="btn">View Menu</a>
+            </div>
         </div>
     </section>
 
@@ -88,5 +162,10 @@
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
         </ul>
     </footer>
+
+    <!-- JavaScript for scroll functionality -->
+    <script src="./scripts/scroll.js" defer></script>
+    <!-- JavaScript for right-click event -->
+    <script src="./scripts/right-click.js" defer></script>
 </body>
 </html>
