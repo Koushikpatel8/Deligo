@@ -1,20 +1,27 @@
-// scripts/events.js
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Events script loaded!");
 
-// Select the submit button and tooltip elements
-const submitButton = document.getElementById('submit-button');
-const tooltip = document.getElementById('tooltip');
+    // Select the email input and hint elements
+    const emailInput = document.getElementById('email');
+    const emailHint = document.getElementById('email-hint');
 
-// Add a click event listener to the submit button
-submitButton.addEventListener('click', () => {
-    alert('Form submitted successfully!'); // Show an alert when the form is submitted
-});
+    // Check if the email input and hint exist
+    if (emailInput && emailHint) {
+        console.log("Email input and hint found!");
 
-// Add a mouseover event listener to the submit button
-submitButton.addEventListener('mouseover', () => {
-    tooltip.style.display = 'block'; // Show the tooltip when the mouse is over the button
-});
+        // Add a focus event listener to the email input
+        emailInput.addEventListener('focus', () => {
+            console.log("Email input focused!");
+            emailHint.textContent = "Please enter a valid email address (e.g., user@example.com).";
+            emailHint.style.display = 'block'; // Show the hint
+        });
 
-// Add a mouseout event listener to the submit button
-submitButton.addEventListener('mouseout', () => {
-    tooltip.style.display = 'none'; // Hide the tooltip when the mouse leaves the button
+        // Add a blur event listener to the email input
+        emailInput.addEventListener('blur', () => {
+            console.log("Email input blurred!");
+            emailHint.style.display = 'none'; // Hide the hint
+        });
+    } else {
+        console.error("Email input or hint not found!");
+    }
 });
