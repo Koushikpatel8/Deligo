@@ -1,0 +1,50 @@
+{% extends 'food_delivery/base.html' %}
+{% load static %}
+
+{% block title %}{{ restaurant.name }} Menu{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'food_delivery/css/restaurant_detail.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<div class="restaurants">
+    <h2>{{ restaurant.name }} Menu</h2>
+
+    <div class="restaurant-list">
+        {% for category in categories %}
+        <div class="category-section">
+            <h3>{{ category.name }}</h3>
+            {% if category.description %}
+                <p>{{ category.description }}</p>
+            {% endif %}
+
+            {% for item in category.items.all %}
+            <div class="dish-row">
+                <div class="dish-info">
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                    <div class="dish-text">
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.description }}</p>
+                        <p>€{{ item.price }}</p>
+                    </div>
+                </div>
+
+                <!-- This section allows users to pick how many items to add -->
+                <div class="input-group mb-2">
+                    <button class="btn btn-outline-secondary decrease-qty" type="button">−</button>
+                    <input type="number" class="form-control item-qty" value="1" min="1" max="20" style="width: 60px;">
+                    <button class="btn btn-outline-secondary increase-qty" type="button">+</button>
+
+                    <!-- Add-to-cart button, triggers AJAX -->
+                    <button class="btn btn-primary add-to-cart" data-id="{{ item.id }}">Add</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- JavaScript section for AJAX and quantity control -->
+{% endblock content %}

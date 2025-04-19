@@ -1,0 +1,162 @@
+{% extends "food_delivery/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'food_delivery/css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="cart">
+    <h2>Your Cart</h2>
+
+    <div class="cart-items">
+        {% if cart and cart.items.all %}
+            {% for item in cart.items.all %}
+            <div class="cart-item">
+
+                {% if item.menu_item.image %}
+                    <img src="{{ item.menu_item.image.url }}" alt="{{ item.menu_item.name }}">
+                {% else %}
+                    <img src="{% static 'food_delivery/images/default-dish.jpg' %}" alt="No image available">
+                {% endif %}
+
+                <div class="item-info">
+                    <h3>{{ item.menu_item.name }}</h3>
+                    <p>{{ item.menu_item.description|default:"No description available" }}</p>
+                    <p>Unit Price: €{{ item.menu_item.price }}</p>
+                    <p><strong>Total: €{{ item.price }}</strong></p>
+                </div>
+
+                <label for="qty-{{ item.menu_item.id }}">Quantity:</label>
+                <input 
+                    id="qty-{{ item.menu_item.id }}" 
+                    type="number" 
+                    class="qty-input" 
+                    data-id="{{ item.menu_item.id }}"
+                    value="{{ item.quantity }}" 
+                    min="1" max="20" 
+                    style="width: 60px;">
+
+                <button class="btn update-btn" data-id="{{ item.menu_item.id }}" data-action="update">Update</button>
+                <button class="btn remove-btn" data-id="{{ item.menu_item.id }}" data-action="remove">Remove</button>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Your cart is empty.</p>
+        {% endif %}
+    </div>
+
+    {% if cart and cart.items.exists %}
+    <div class="cart-total">
+        <h3>Total: €{{ cart.total_price }}</h3>
+        <form id="checkout-form" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Checkout</button>
+        </form>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const csrftoken = '{{ csrf_token }}';
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const trimmed = cookie.trim();
+                if (trimmed.startsWith(name + '=')) {
+                    cookieValue = decodeURIComponent(trimmed.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function updateCartCount(count) {
+        const cartCount = document.getElementById("cart-count");
+        if (cartCount) cartCount.innerText = count;
+    }
+
+    document.querySelectorAll('.update-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const menuItemId = button.dataset.id;
+            const qtyInput = document.getElementById("qty-" + menuItemId);
+            const quantity = parseInt(qtyInput.value);
+
+            fetch("{% url 'food_delivery:update_cart_item' %}", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({
+                    menu_item_id: menuItemId,
+                    action: 'update',
+                    quantity: quantity
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    updateCartCount(data.cart_item_count);
+                    location.reload();
+                }
+            });
+        });
+    });
+
+    document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const menuItemId = button.dataset.id;
+
+            fetch("{% url 'food_delivery:update_cart_item' %}", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({
+                    menu_item_id: menuItemId,
+                    action: 'remove'
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    updateCartCount(data.cart_item_count);
+                    location.reload();
+                }
+            });
+        });
+    });
+
+    const checkoutForm = document.getElementById("checkout-form");
+    if (checkoutForm) {
+        checkoutForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            fetch("{% url 'food_delivery:checkout' %}", {
+                method: "POST",
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.redirect_url) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    console.error(data.error || "Checkout failed");
+                }
+            });
+        });
+    }
+});
+</script>
+{% endblock %}

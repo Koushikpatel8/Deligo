@@ -1,0 +1,32 @@
+{% extends "food_delivery/base.html" %}  {# Inherit from base layout for consistent structure #}
+{% load static %}  {# Load static file support for including CSS and JS files #}
+
+{% block title %}Deligo - Home{% endblock %}  {# Set the browser tab title #}
+
+{% block extra_css %}
+<!-- Include home-specific stylesheet -->
+<link rel="stylesheet" href="{% static 'food_delivery/css/style.css' %}">  {# Link to the main custom style file #}
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section with background image and call-to-action -->
+<section class="hero">  {# Full-width banner section on homepage #}
+    <div class="hero-content">  {# Container for the text and button within the hero section #}
+
+        <!-- Main headline for the hero section -->
+        <h1>Delicious Food Delivered to Your Doorstep</h1>  {# Main heading message #}
+
+        <!-- Supporting text for users -->
+        <p>Order from your favorite restaurants and enjoy a hassle-free dining experience.</p>  {# Subtext to encourage users to order #}
+
+        <!-- Button to redirect to the dynamic restaurant listing page -->
+        <a href="{% url 'food_delivery:restaurant_list' %}" class="btn">Order Now</a>  {# Call-to-action button linking to restaurant list #}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Optional scripts for UI interactions -->
+<script src="{% static 'food_delivery/scripts/scroll.js' %}" defer></script>  {# Handles smooth scrolling or scroll effects #}
+<script src="{% static 'food_delivery/scripts/right-click.js' %}" defer></script>  {# Optionally disables right-click on the page #}
+{% endblock %}

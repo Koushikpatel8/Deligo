@@ -1,0 +1,61 @@
+{% extends "food_delivery/base.html" %}  {# Inherit from the base layout #}
+{% load static %}  {# Load static file support #}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'food_delivery/css/contact.css' %}">  {# Page-specific CSS #}
+{% endblock %}
+
+{% block content %}
+<section class="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or feedback? We'd love to hear from you!</p>
+
+    <form id="feedback-form" novalidate>  {# Feedback form, handled using JavaScript #}
+
+        <div class="form-group">  {# Name input field #}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <span id="name-error" class="error"></span>
+        </div>
+
+        <div class="form-group">  {# Email input field #}
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <span id="email-error" class="error"></span>
+        </div>
+
+        <div class="form-group">  {# Message textarea field #}
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+            <span id="message-error" class="error"></span>
+        </div>
+
+        <div class="form-group">  {# Submit button #}
+            <button type="submit" class="btn" id="submit-button">Send Message</button>
+            <div id="tooltip" class="tooltip">Click to submit your message!</div>
+        </div>
+    </form>
+
+    <div class="view-responses-container">  {# Button to view saved responses using JS #}
+        <button id="view-responses" class="btn">View Responses</button>
+    </div>
+
+    <table id="responses-table">  {# Table to display stored feedback dynamically #}
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody></tbody>  {# Will be filled with JS #}
+    </table>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'food_delivery/scripts/validation.js' %}"></script>  {# JS for validating form input #}
+    <script src="{% static 'food_delivery/scripts/storage.js' %}" defer></script>  {# JS for local storage handling #}
+    <script src="{% static 'food_delivery/scripts/right-click.js' %}" defer></script>  {# Disable right-click (optional) #}
+    <script src="{% static 'food_delivery/scripts/events.js' %}" defer></script>  {# Event listeners for form feedback #}
+{% endblock %}

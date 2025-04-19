@@ -1,0 +1,128 @@
+/* ===============================
+   Cart Section Styles
+   =============================== */
+
+/* Wrapper for entire cart section */
+.cart {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+/* Heading style for cart page */
+.cart h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* Container holding all cart items */
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Styling for each cart item */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Image styling inside cart items */
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+/* Text area for item name, description, price */
+.item-info {
+    flex: 1;
+    text-align: left;
+    min-width: 200px;
+}
+
+.item-info h3 {
+    font-size: 1.4rem;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.item-info p {
+    margin: 4px 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Quantity input and update/remove controls */
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Quantity input box styling */
+.cart-controls input[type="number"] {
+    width: 60px;
+    padding: 6px 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+}
+
+/* Buttons (Update and Remove) */
+.cart-controls .btn,
+.cart-item form button {
+    background-color: #e74c3c;
+    border: none;
+    color: #fff;
+    padding: 8px 18px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effect for buttons */
+.cart-controls .btn:hover,
+.cart-item form button:hover {
+    background-color: #c0392b;
+}
+
+/* Cart total price styling */
+.cart-total {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    color: #111;
+    font-weight: 600;
+}
+
+/* Checkout button inside total section */
+#checkout-form button {
+    margin-top: 15px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    background-color: #27ae60;
+    border-radius: 25px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Hover state for checkout button */
+#checkout-form button:hover {
+    background-color: #219150;
+}

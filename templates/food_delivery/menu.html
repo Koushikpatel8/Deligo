@@ -1,0 +1,28 @@
+{% extends "food_delivery/base.html" %}  {# Inherit from the main base layout #}
+{% load static %}  {# Enable the use of static file paths (e.g., for CSS/JS) #}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'food_delivery/css/restaurants.css' %}">  {# Load specific stylesheet for this page #}
+{% endblock %}
+
+{% block content %}
+<section class="restaurants">
+    <h2>Featured Restaurants</h2>  {# Section title #}
+    
+    <div class="restaurant-grid">  {# Grid layout container for all restaurant cards #}
+        {% for restaurant in restaurants %}  {# Loop through each restaurant passed from the view #}
+        <div class="restaurant-card">  {# Card layout for a single restaurant #}
+            <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}">  {# Display restaurant image with alt text #}
+            <h3>{{ restaurant.name }}</h3>  {# Restaurant name #}
+            <p>{{ restaurant.description }}</p>  {# Restaurant description #}
+            <a href="{% url 'food_delivery:restaurant_detail' restaurant.id %}" class="btn">View Menu</a>  {# Link to restaurant menu #}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'food_delivery/scripts/scroll.js' %}" defer></script>  {# Optional: Smooth scroll or animation effects #}
+<script src="{% static 'food_delivery/scripts/right-click.js' %}" defer></script>  {# Optional: Disable right-click behavior #}
+{% endblock %}

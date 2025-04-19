@@ -1,0 +1,77 @@
+/* Main section styling */
+.restaurants {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Heading styling */
+.restaurants h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Dish rows */
+.restaurant-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Individual dish card */
+.dish-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Dish details: image + text */
+.dish-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+
+/* Dish image */
+.dish-info img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Dish name and description */
+.dish-text h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.dish-text p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Add button styling */
+.dish-row .btn {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dish-row .btn:hover {
+    background-color: #e64a19;
+}

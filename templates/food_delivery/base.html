@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Deligo - Food Delivery{% endblock %}</title>
+
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="{% static 'food_delivery/css/style.css' %}">
+
+    <!-- Page-Specific CSS Block -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+    <nav class="navbar">
+        <!-- === LOGO === -->
+        <div class="logo">
+            <a href="{% url 'food_delivery:home' %}">
+                <img src="{% static 'food_delivery/images/logo.jpg' %}" alt="Deligo Logo">
+            </a>
+        </div>
+
+        <!-- === NAVIGATION + HAMBURGER === -->
+        <div class="menu-container">
+            <!-- Hamburger icon -->
+            <div id="menu-icon" class="menu-icon" role="button" aria-label="Toggle menu" aria-expanded="false" tabindex="0">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul id="nav-links" class="nav-links">
+                <li><a href="{% url 'food_delivery:home' %}">Home</a></li>
+                <li><a href="{% url 'food_delivery:restaurant_list' %}">Restaurants</a></li>
+
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'food_delivery:cart' %}">
+                            Cart (<span id="cart-count">{{ cart_count|default:"0" }}</span>)
+                        </a>
+                    </li>
+                    <li><a href="{% url 'food_delivery:profile' %}">Profile</a></li>
+                    <li><a href="{% url 'food_delivery:logout' %}">Logout</a></li>
+
+                    {% if user.type == 'MANAGER' or user.is_staff %}
+                        <li><a href="{% url 'food_delivery:restaurant_dashboard' %}">Dashboard</a></li>
+                    {% endif %}
+                {% else %}
+                    <li><a href="{% url 'food_delivery:login' %}">Login</a></li>
+                    <li><a href="{% url 'food_delivery:register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+    <div class="container">
+        <!-- Django Flash Messages -->
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Page-specific content -->
+        {% block content %}{% endblock %}
+    </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; {% now "Y" %} Deligo Food Delivery. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- ================= Scripts ================= -->
+<script src="{% static 'food_delivery/scripts/menu.js' %}" defer></script>
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

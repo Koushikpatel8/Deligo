@@ -1,0 +1,31 @@
+{% extends "food_delivery/base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Orders for {{ restaurant.name }}</h2>
+
+<ul>
+    {% for order in orders %}
+        <li style="margin-bottom: 20px;">
+            <strong>Order #{{ order.pk }}</strong> – <em>{{ order.get_status_display }}</em>
+            —
+            <a href="{% url 'food_delivery:update_order_status' order.pk %}">Update</a>
+
+            {% if order.items.exists %}
+                <ul style="margin-top: 5px; margin-bottom: 10px;">
+                    {% for item in order.items.all %}
+                        <li>
+                            {{ item.quantity }} × {{ item.menu_item.name }} — €{{ item.price }}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <strong>Total:</strong> €{{ order.total_price }}
+            {% else %}
+                <p style="color: grey;">No items in this order.</p>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>No orders to display.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

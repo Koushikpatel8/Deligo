@@ -1,0 +1,25 @@
+{% extends "food_delivery/base.html" %}  {# Inherit base layout for consistency across pages #}
+{% load static %}  {# Load static files such as CSS or JS #}
+
+{% block title %}My Profile{% endblock %}  {# Set the page title #}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'food_delivery/css/profile.css' %}">  {# Load profile-specific styles #}
+{% endblock %}
+
+{% block content %}
+<div class="profile-section">  {# Container for profile update content #}
+    <h2>Update Profile</h2>  {# Section heading #}
+
+    <form method="post" class="profile-form">  {# Form for updating user profile #}
+        {% csrf_token %}  {# Security token for safe form submission #}
+        {{ form.as_p }}  {# Render the form fields as paragraph elements #}
+        
+        <button type="submit" class="btn">Save</button>  {# Submit button #}
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Include any page-specific JavaScript if needed -->
+{% endblock %}

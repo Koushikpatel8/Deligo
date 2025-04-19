@@ -1,0 +1,72 @@
+{% extends "food_delivery/base.html" %}  {# Use the base template for layout and styling #}
+{% load static %}  {# Load static file support #}
+
+{% block title %}Register{% endblock %}  {# Set the page title #}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'food_delivery/css/style.css' %}">  {# General styles #}
+<link rel="stylesheet" href="{% static 'food_delivery/css/register.css' %}">  {# Page-specific styles #}
+{% endblock %}
+
+{% block content %}
+<section class="register">
+    <div class="register-container">
+
+        <div class="logo">  {# Display logo at the top of the form #}
+            <img src="{% static 'food_delivery/images/logo.jpg' %}" alt="Food Delivery Logo">
+        </div>
+
+        <h2>Create an Account</h2>  {# Page heading #}
+        <p>Please fill in the form to register.</p>  {# Instructional text #}
+
+        <form method="post" novalidate>  {# Django form submission with CSRF protection #}
+            {% csrf_token %}
+            {{ form.non_field_errors }}  {# Display any form-wide errors #}
+
+            <div class="form-group">  {# Username field #}
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+
+            <div class="form-group">  {# Email field #}
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div class="form-group">  {# Phone number field #}
+                {{ form.phone.label_tag }}
+                {{ form.phone }}
+                {{ form.phone.errors }}
+            </div>
+
+            <div class="form-group">  {# Address field #}
+                {{ form.address.label_tag }}
+                {{ form.address }}
+                {{ form.address.errors }}
+            </div>
+
+            <div class="form-group">  {# Password field #}
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+            </div>
+
+            <div class="form-group">  {# Password confirmation field #}
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+            </div>
+
+            <button type="submit" class="btn">Register</button>  {# Submit button #}
+        </form>
+
+        <p class="login-link">Already have an account? <a href="{% url 'food_delivery:login' %}">Login</a></p>  {# Redirect to login if user already registered #}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'food_delivery/scripts/right-click.js' %}" defer></script>  {# Optional script to block right-click #}
+{% endblock %}

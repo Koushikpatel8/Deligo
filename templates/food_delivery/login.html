@@ -1,0 +1,57 @@
+{% extends "food_delivery/base.html" %}  {# Inherit layout from base template #}
+{% load static %}  {# Enable use of static files like CSS/JS #}
+
+{% block title %}Login{% endblock %}  {# Set the page title #}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'food_delivery/css/style.css' %}">  {# Load global stylesheet #}
+<link rel="stylesheet" href="{% static 'food_delivery/css/login.css' %}">  {# Load login page-specific stylesheet #}
+{% endblock %}
+
+{% block content %}
+<section class="login">
+    <div class="login-container">
+
+        <!-- Logo Display -->
+        <div class="logo">
+            <img src="{% static 'food_delivery/images/logo.jpg' %}" alt="Food Delivery Logo">
+        </div>
+
+        <!-- Heading and Instructions -->
+        <h2>Welcome Back!</h2>
+        <p>Please log in to continue.</p>
+
+        <!-- Django Login Form -->
+        <form method="post" novalidate>
+            {% csrf_token %}  {# Add CSRF protection token #}
+            {{ form.non_field_errors }}  {# Display non-field validation errors #}
+
+            <!-- Username Field -->
+            <div class="form-group">
+                {{ form.username.label_tag }}  {# Label for username #}
+                {{ form.username }}  {# Input field for username/email #}
+                {{ form.username.errors }}  {# Field-specific errors #}
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                {{ form.password.label_tag }}  {# Label for password #}
+                {{ form.password }}  {# Password input field #}
+                {{ form.password.errors }}  {# Field-specific errors #}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <!-- Link to Registration Page -->
+        <p class="signup-link">Don't have an account? 
+            <a href="{% url 'food_delivery:register' %}">Sign Up</a>
+        </p>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'food_delivery/scripts/right-click.js' %}" defer></script>  {# Optional: Disable right-click functionality #}
+{% endblock %}

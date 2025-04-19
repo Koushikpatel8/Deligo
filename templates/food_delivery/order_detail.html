@@ -1,0 +1,37 @@
+{% extends "food_delivery/base.html" %}  {# Inherit from the base layout template #}
+{% load static %}  {# Load static files for CSS and JS #}
+
+{% block title %}Order Placed{% endblock %}  {# Set the page title #}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'food_delivery/css/order_detail.css' %}">  {# Optional: Include order detail-specific CSS #}
+{% endblock %}
+
+{% block content %}
+<div class="order-detail container mt-5">
+
+    <div class="alert alert-success text-center" role="alert">
+        🎉 Your order has been placed successfully!  {# Success message shown after placing an order #}
+    </div>
+
+    <h2 class="mt-4">Order #{{ order.pk }}</h2>  {# Show order number #}
+    <p><strong>Status:</strong> {{ order.get_status_display }}</p>  {# Display readable order status #}
+
+    {% if order.items.exists %}  {# Check if the order contains items #}
+        <ul class="order-items mt-3">
+            {% for item in order.items.all %}  {# Loop through each order item #}
+                <li>
+                    {{ item.quantity }} × {{ item.menu_item.name }} — €{{ item.price }}  {# Show item quantity, name, and price #}
+                </li>
+            {% endfor %}
+        </ul>
+        <p class="mt-3"><strong>Total:</strong> €{{ order.total_price }}</p>  {# Display total price of the order #}
+    {% else %}
+        <p>Your order has no items.</p>  {# Message if there are no items in the order #}
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Add any JavaScript needed for this page here -->
+{% endblock %}

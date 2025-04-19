@@ -1,22 +1,41 @@
 # Deligo - Online Food Delivery Platform
 
-## Project Description
-Deligo is an online food delivery platform designed to provide users with a seamless and enjoyable experience for ordering food from their favorite restaurants. This project is built using HTML, CSS, and JavaScript and serves as a prototype for a fully functional food delivery application. The current version includes dynamic features such as form validation, local storage for user data, and event handling to enhance user interaction.
+# Deligo - Django-Based Online Food Delivery Platform
 
-## How to Run the Project
-1. Download the project files and extract the ZIP folder.
-2. Open the `index.html` file in a web browser to start the application.
-3. Navigate through the pages using the links provided in the navigation menu.
+## Project Overview
 
-## File Structure and Purpose
-### HTML Files
-- **index.html**: The login page where users enter their email and password to access the platform. Includes form validation and redirection to the home page.
-- **home.html**: The home page featuring a call-to-action button to explore restaurants.
-- **restaurants.html**: The restaurants page displaying a variety of cuisines and restaurants.
-- **menu.html**: The menu page where users can view dishes and add them to their cart.
-- **cart.html**: The cart page showing selected items and the total order amount.
-- **contact.html**: The contact page for users to submit feedback or queries. Includes form validation and local storage for responses.
-- **register.html**: The registration page where new users can create an account. Includes form validation and local storage for user data.
+**Deligo** is a Django-based web application that facilitates food ordering between customers and restaurant managers. Built as part of a university coursework project, the application supports user authentication, dynamic menu displays, cart functionality, order placement, and manager order tracking — all integrated with a relational SQLite database.
+
+Deligo replaces static HTML/JS with a full server-side architecture using Django, forms, models, AJAX, and database connectivity.
+
+---
+
+## Application Domain
+
+- **Domain**: Online Food Ordering & Delivery
+- **Target Users**: 
+  - **Customers**: Browse restaurants, add food to cart, checkout.
+  - **Restaurant Managers**: Manage orders, update order status.
+- **Use Case**: Simulates a real-world food delivery service such as UberEats or Deliveroo for learning full-stack development using Django.
+
+---
+
+## Features Implemented
+
+- User registration & login with role-based access (`Customer`, `Manager`)
+- Browse restaurants and dynamically loaded menu items
+- Quantity controls with **AJAX-based Add to Cart**
+- Global cart support across restaurants
+- Full cart management (update quantity, remove items)
+- Order placement & automatic total calculation
+- Manager dashboard for viewing and updating order status
+- AJAX checkout handling with redirection
+- Profile editing with form validation
+
+---
+
+## Project Structure
+
 
 ### CSS Files
 - **stylesheets/style.css**: Global styles used across all pages.
@@ -40,6 +59,16 @@ Deligo is an online food delivery platform designed to provide users with a seam
 ### Images Folder
 - **images/**: Contains all images used in the project, such as the logo (`logo.jpg`), dish images (`dish1.jpg`, `dish2.jpg`...), and restaurant images (`restaurant1.jpg`, `restaurant2.jpg`,....).
 
+By default, this will start the server on port 8000. You can access your HTML file by visiting http://localhost:8000 in your browser.
+
+If you want to specify a different port, you can do so by providing the port number:
+
+bash
+Copy code
+python -m http.server 8080
+This will run the server on http://localhost:8080.
+
+
 ## Future Enhancements
 In the future, Deligo will be enhanced with:
 - JavaScript for dynamic functionality (e.g., updating the cart in real-time).
@@ -59,3 +88,12 @@ For any questions or feedback, please contact:
 - **Email**: [saikoushikjuttu@gmail.com]
 - **GitHub**: [https://github.com/Koushikpatel8]
 
+cd "deligo_project"
+1. venv\Scripts\activate
+2. pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+
+
+
+python manage.py runserver
